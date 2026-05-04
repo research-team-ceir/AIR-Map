@@ -212,10 +212,17 @@ Promise.all([
 
     // #region TOOLTIP FUNCTIONS
     var showTooltip = function(e, d) {
-        tooltip
-            .style("left", (e.pageX - 70) + "px")
-            .style("top", (e.pageY - 60) + "px")
-            .style("opacity", 1);
+        if (e.pageX > 900) {
+            tooltip
+                .style("left", (e.pageX - tooltip.node().getBoundingClientRect().width - 15) + "px")
+                .style("top", (e.pageY - 60) + "px")
+                .style("opacity", 1);
+        } else {
+            tooltip
+                .style("left", (e.pageX + 15) + "px")
+                .style("top", (e.pageY - 60) + "px")
+                .style("opacity", 1);
+        }
 
         tooltipText.html(d.name + ": " + d.active);
     };
