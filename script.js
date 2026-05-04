@@ -238,6 +238,10 @@ Promise.all([
         .on("mousemove", showTooltip)
         .on("mouseleave", hideTooltip);
 
+    svg.on("mousemove", function(e) {
+        console.log(e.pageX)
+    })
+
     // #endregion
 
 });
