@@ -213,8 +213,8 @@ Promise.all([
     // #region TOOLTIP FUNCTIONS
     var showTooltip = function(e, d) {
         tooltip
-            .style("left", (e.pageX + 15) + "px")
-            .style("top", (e.pageY - 50) + "px")
+            .style("left", (e.pageX - 70) + "px")
+            .style("top", (e.pageY - 60) + "px")
             .style("opacity", 1);
 
         tooltipText.html(d.name + ": " + d.active);
