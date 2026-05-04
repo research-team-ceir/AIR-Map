@@ -212,7 +212,7 @@ Promise.all([
 
     // #region TOOLTIP FUNCTIONS
     var showTooltip = function(e, d) {
-        if (e.pageX + tooltip.node().getBoundingClientRect().width > 666) {
+        if (e.pageX + tooltip.node().getBoundingClientRect().width > 650) {
             tooltip
                 .style("left", (e.pageX - tooltip.node().getBoundingClientRect().width - 15) + "px")
                 .style("top", (e.pageY - 60) + "px")
@@ -237,10 +237,6 @@ Promise.all([
         .on("mouseover", showTooltip)
         .on("mousemove", showTooltip)
         .on("mouseleave", hideTooltip);
-
-    svg.on("mousemove", function(e) {
-        console.log(e.pageX)
-    })
 
     // #endregion
 
