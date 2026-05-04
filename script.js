@@ -212,6 +212,7 @@ Promise.all([
 
     // #region TOOLTIP FUNCTIONS
     var showTooltip = function(e, d) {
+        console.log(e.pageX)
         if (e.pageX > 900) {
             tooltip
                 .style("left", (e.pageX - tooltip.node().getBoundingClientRect().width - 15) + "px")
