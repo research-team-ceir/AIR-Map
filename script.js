@@ -12,7 +12,6 @@ d3.select("#air-map")
     .append("h1")
     .text("Active Registration Rate in 2024")
     .style("text-align", "center")
-    .style("font-family", "'Source Serif 4', sans-serif")
     .style("margin-bottom", 0);
 
 d3.select("#air-map")
@@ -20,7 +19,6 @@ d3.select("#air-map")
     .text("Difference from 50-state and DC average of 85%")
     .style("text-align", "center")
     .style("font-size", "20px")
-    .style("font-family", "'Source Serif 4', sans-serif")
     .style("margin-top", "5px");
 
 var bodyWidth = document.getElementsByTagName("body")[0].getBoundingClientRect().width;
@@ -198,13 +196,20 @@ Promise.all([
         .append("text")
         .text("*North Dakota does not require formal voter registration.")
         .attr("x", 25)
-        .attr("y", 625)
+        .attr("y", 650-22-5)
+        .style("font-size", "11px");
+
+    legend
+        .append("text")
+        .text("Source: CEIR, \"State Active Registration Rates\"")
+        .attr("x", 25)
+        .attr("y", 650-11)
         .style("font-size", "11px");
 
     legend.append("svg:image")
         .attr("xlink:href", "images/CEIR_Logo_Vertical_OneColor_LightBlue.png")
         .attr("x", 666-50)
-        .attr("y", 575)
+        .attr("y", 650-50)
         .attr("width", 50)
         .attr("height", 50);
 
