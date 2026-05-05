@@ -142,6 +142,9 @@ Promise.all([
         {text: "+30", value: 0.3}
     ];
 
+    var legendContainer = airViz.append("g")
+        .attr("id", "legend-container");
+
     var legend = airViz.append("g")
         .attr("id", "legend");
 
@@ -179,7 +182,7 @@ Promise.all([
     var legx = legendBar.node().getBoundingClientRect().x;
     legendBar.attr("transform", "translate(" + ((666-legWidth) / 2 - (legx-((bodyWidth-666)/2))) + ", 0)");
 
-    var legendHeader = legend.append("g")
+    var legendHeader = legendContainer.append("g")
         .attr("id", "legendHeader");
 
     legendHeader
