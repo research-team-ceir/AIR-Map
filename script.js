@@ -142,9 +142,6 @@ Promise.all([
         {text: "+30", value: 0.3}
     ];
 
-    var legendContainer = airViz.append("g")
-        .attr("id", "legend-container");
-
     var legend = airViz.append("g")
         .attr("id", "legend");
 
@@ -173,7 +170,7 @@ Promise.all([
             } else if (d.value == 0) {
                 return 45 + (i * 40);
             } else if (d.value > 0) {
-                return 60 + (i * 40);
+                return 57 + (i * 40);
             }
         })
         .attr("font-size", "12px");
@@ -182,7 +179,7 @@ Promise.all([
     var legx = legendBar.node().getBoundingClientRect().x;
     legendBar.attr("transform", "translate(" + ((666-legWidth) / 2 - (legx-((bodyWidth-666)/2))) + ", 0)");
 
-    var legendHeader = legendContainer.append("g")
+    var legendHeader = legend.append("g")
         .attr("id", "legendHeader");
 
     legendHeader
