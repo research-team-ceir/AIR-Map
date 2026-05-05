@@ -63,7 +63,7 @@ Promise.all([
 ]).then(function([tileMap, airData]) {
     var colorScale = d3.scaleLinear()
         .domain([-0.3, 0, 0.3])
-        .range(["#08a36a", "#fff", "#d1218f"]);
+        .range(["#d1218f", "#fff", "#08a36a"]);
 
     // merging data 
     for (var i = 0; i < tileMap.states.length; i++) {
