@@ -217,19 +217,22 @@ Promise.all([
 
     // #region TOOLTIP FUNCTIONS
     var showTooltip = function(e, d) {
-        if (e.pageX + tooltip.node().getBoundingClientRect().width > 650) {
+        tooltipText.html(d.name + ": " + d.active);
+
+        var tooltipHeight = tooltip.node().getBoundingClientRect().height;
+        var tooltipWidth = tooltip.node().getBoundingClientRect().width;
+
+        if (e.pageX + tooltipWidth > window.innerWidth - 10) {
             tooltip
-                .style("left", (e.pageX - tooltip.node().getBoundingClientRect().width - 15) + "px")
-                .style("top", (e.pageY - 60) + "px")
+                .style("left", (e.pageX - tooltipWidth - 10) + "px")
+                .style("top", (e.pageY - tooltipHeight - 10) + "px")
                 .style("opacity", 1);
         } else {
             tooltip
-                .style("left", (e.pageX + 15) + "px")
-                .style("top", (e.pageY - 60) + "px")
+                .style("left", (e.pageX + 10) + "px")
+                .style("top", (e.pageY - tooltipHeight - 10) + "px")
                 .style("opacity", 1);
         }
-
-        tooltipText.html(d.name + ": " + d.active);
     };
 
     var hideTooltip = function(e, d) {
