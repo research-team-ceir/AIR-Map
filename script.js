@@ -1,4 +1,10 @@
 // #region SETUP
+function center(selection, y) {
+    var width = selection.node().getBBox().width;
+    var x = selection.node().getBBox().x;
+    selection.attr("transform", "translate(" + ((666-width)/2 - x) + "," + y + ")");
+};
+
 d3.select("body")
     .append("div")
     .attr("id", "air-map")
@@ -121,9 +127,7 @@ Promise.all([
             .style("pointer-events", "none");
 
     // centering map
-    var mapWidth = mapContainer.node().getBoundingClientRect().width;
-    var mapx = mapContainer.node().getBoundingClientRect().x;
-    mapContainer.attr("transform", "translate(" + ((666-mapWidth) / 2 - (mapx-((bodyWidth-666)/2))) + ", 0)");
+    mapContainer.call(center, 0);
 
     // #region LEGEND
     var legendData = [
@@ -175,9 +179,7 @@ Promise.all([
         })
         .attr("font-size", "12px");
 
-    var legWidth = legendBar.node().getBoundingClientRect().width;
-    var legx = legendBar.node().getBoundingClientRect().x;
-    legendBar.attr("transform", "translate(" + ((666-legWidth) / 2 - (legx-((bodyWidth-666)/2))) + ", 0)");
+    legendBar.call(center, 0);
 
     var legendHeader = legend.append("g")
         .attr("id", "legendHeader");
@@ -188,9 +190,7 @@ Promise.all([
         .attr("y", 530)
         .attr("x", 0);
 
-    var headWidth = legendHeader.node().getBoundingClientRect().width;
-    var headx = legendHeader.node().getBoundingClientRect().x;
-    legendHeader.attr("transform", "translate(" + ((666-headWidth) / 2 - (headx-((bodyWidth-666)/2))) + ", 0)");
+    legendHeader.call(center, 0)
 
     legend
         .append("text")
